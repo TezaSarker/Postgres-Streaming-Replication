@@ -130,10 +130,29 @@ Expected Result:  t
 SELECT * FROM pg_stat_wal_receiver;
 ```
 
+# 🧪 Test Replication
+```
+### On Primary:
+
+CREATE TABLE employees (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    age INTEGER
+);
+
+INSERT INTO employees (name, age)
+VALUES ('John Doe', 30),
+       ('Jane Smith', 25);
+
+### On Standby:
+
+SELECT * FROM employees;
+<img width="306" height="130" alt="image" src="https://github.com/user-attachments/assets/88b63cde-e835-447e-a0a1-e78facd38fe5" />
 
 
+## If data is visible → Replication is successful ✅
 
-
+```
 
 
 
